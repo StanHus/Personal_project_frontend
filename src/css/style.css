@@ -1,0 +1,75 @@
+.body {
+    margin: 0%;
+}
+.input{
+    width: 80%;
+    margin-left: 10%
+}
+.entry {
+    border-radius: 3px;
+    border: black solid 1px;
+    background-color: rgb(74, 2, 207);
+    font-size: auto;
+    color: white;
+    padding: 1%;
+    margin: 1%;
+    width: 12.25%;
+    display:grid;
+    text-align: center;
+  }
+
+  .containers{
+    margin: 0%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* justify-content: flex-start; */
+  }
+
+  .list {
+    margin: 0%;
+    width: 95%;
+    margin-left: 2.5%;
+    align-content: flex-start;
+    justify-content: flex-start;
+    border: 1px double grey;
+    background-color: rgb(157, 191, 255);
+  }
+
+  .days {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 95%;
+    margin-top: 4%;
+    margin-left: 2.5%;
+    align-content: flex-start;
+    justify-content: flex-start;
+  }
+
+  .day {
+    font-size: auto;
+    color: rgb(0, 0, 0);
+    padding: 1%;
+    margin: 1%;
+    width: 12.25%;
+    display:grid;
+    text-align: center;
+    border-left: solid black 2px;
+    border-right: solid black 2px;
+    border-top: solid black 2px;
+  }
+
+  .delete_button{
+    background-color: red;
+    color: white;
+    border: black solid;
+    font-size: 60%;
+  }
+
+  .edit_button{
+    background-color: rgb(117, 119, 0);
+    color: white;
+    border: black solid;
+    font-size: 60%;
+  }
