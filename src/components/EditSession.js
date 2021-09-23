@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
+import "../App.css"
 
 const EditSession = ({session}) => {
   const [muscles_trained, setMuscles_trained] = useState(session.muscles_trained);
-
-  //edit muscles_trained function ONLY
 
   const updateMuscles_trained = async (e)  => {
     e.preventDefault();
