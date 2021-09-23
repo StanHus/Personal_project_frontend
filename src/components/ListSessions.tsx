@@ -3,30 +3,35 @@ import EditSession from "./EditSession";
 import "../css/style.css"
 import "../App.css"
 
+interface ISession {
+  id: number,
+  muscles_trained: string
+}
+
 const ListSessions = () => {
   const [sessions, setSessions] = useState([]);
 
-
   //delete session function
 
-  const deleteSession = async (id) => {
+  const deleteSession = async (id: number) => {
     try {
         await fetch(`https://mysterious-reaches-13528.herokuapp.com/list/${id}`, {
         method: "DELETE"
       });
-      setSessions(sessions.filter(session => session.session_id !== id));
+      setSessions(sessions.filter((session: ISession) => session.id !== id));
     } catch (err) {
       console.error(err);
     }
   };
 
-  const openSession = async (id) => {
+  async function openSession (id: number) {
+    console.log("trying")
     try {
         const response = await fetch(`https://mysterious-reaches-13528.herokuapp.com/list/${id}`, {
         method: "GET"
       });
-      const jsonData = await response.json();  
-      return jsonData
+      console.log(id)
+      window.location.href = `https://mysterious-reaches-13528.herokuapp.com/list/${id}`;
     } catch (err) {
       console.error(err);
     }
@@ -42,6 +47,10 @@ const ListSessions = () => {
       console.error(err);
     }
   };
+
+  function myhref(id: number) {
+    window.location.href = `https://mysterious-reaches-13528.herokuapp.com/list/${id}`;
+}
 
   useEffect(() => {
     getSessions();
@@ -63,16 +72,16 @@ const ListSessions = () => {
         </section>
       <table className = "list">
         <tbody className = "containers">
-          {sessions.map(session => (
-            <tr className = "entry" key={session.session_id}>
-              <td><button onClick = {() => openSession(session.session_id)}>{session.muscles_trained}</button></td>
+          {sessions.map((session: ISession) => (
+            <tr className = "entry" key={session.id}>
+              <td><button onClick = {() => myhref(session.id)}>{session.muscles_trained}</button></td>
               {/* <td>
                 <EditSession session={session} />
               </td>
               <td>
                 <button
                   className="delete_button"
-                  onClick={() => deleteSession(session.session_id)}
+                  onClick={() => deleteSession(session.id)}
                 >
                   Delete
                 </button>
