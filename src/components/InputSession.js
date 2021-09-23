@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import "../css/style.css"
+import "../App.css"
 
 const InputSession = () => {
   const [muscles_trained, setMuscles_trained] = useState("");
