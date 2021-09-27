@@ -1,0 +1,40 @@
+import "../css/style.css"
+import {useState, useEffect} from "react";
+
+export default function SuggestionBox (): JSX.Element {
+    const [answer, setAnswer] = useState("crunches")
+
+    const suggestPlease = async () => {
+          try {
+            const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/list/suggest");
+            const jsonData = await response.json();
+            setAnswer(jsonData.muscles_trained)
+          } catch (err) {
+            console.error(err);
+          }
+        };
+
+        //post
+        // const postIt = async (str: string) => {
+        // try {
+        //        await fetch("https://mysterious-reaches-13528.herokuapp.com/list", {
+        //       method: "POST",
+        //       headers: { "Content-Type": "application/json" },
+        //       body: JSON.stringify(str)
+        //     });
+        //     window.location.href = "/";
+        //   } catch (err) {
+        //     console.error(err);
+        //   }
+        // }
+
+        useEffect(() => {
+           suggestPlease();
+          });
+
+    return(
+        <main>
+            <h3 className = "suggestion-box">Today, I suggest to train the {answer}</h3>
+        </main>
+    )
+}

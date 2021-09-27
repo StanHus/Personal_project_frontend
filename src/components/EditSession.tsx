@@ -5,7 +5,6 @@ interface ISession {
   muscles_trained: string
 }
 
-
 const EditSession = ({session}: any) => {
 
   const [muscles_trained, setMuscles_trained] = useState(session.muscles_trained);

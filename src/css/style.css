@@ -108,8 +108,17 @@ body {
 
   .btn-success {
     background-color: #3F334D;
-    color: white;
+    color:  #EAF0CE;
     border: black solid;
     margin: 1%;
     font-size: 140%;
+  }
+
+  .suggestion-box {
+    text-align: center;
+    color: #ffffff;
+    font-size: auto;
+    background: goldenrod;
+    padding: 1%;
+    margin: 3% 0 3% 0;
   }
