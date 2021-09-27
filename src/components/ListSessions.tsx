@@ -11,33 +11,6 @@ interface ISession {
 const ListSessions = () => {
   const [sessions, setSessions] = useState([]);
 
-  //delete session function
-
-  const deleteSession = async (id: number) => {
-    try {
-        await fetch(`https://mysterious-reaches-13528.herokuapp.com/list/${id}`, {
-        method: "DELETE"
-      });
-      setSessions(sessions.filter((session: ISession) => session.id !== id));
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  async function openSession (id: number) {
-    console.log("trying")
-    try {
-        const response = await fetch(`https://mysterious-reaches-13528.herokuapp.com/list/${id}`, {
-        method: "GET"
-      });
-      console.log(id)
-      window.location.href = `https://mysterious-reaches-13528.herokuapp.com/list/${id}`;
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-
   const getSessions = async () => {
     try {
       const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/list");
@@ -48,46 +21,48 @@ const ListSessions = () => {
     }
   };
 
-  function myhref(id: number) {
-    window.location.href = `https://mysterious-reaches-13528.herokuapp.com/list/${id}`;
-}
+//   function openIt(id: number) {
+//     window.location.href = `https://mysterious-reaches-13528.herokuapp.com/${id}`;
+//     displayTheSession()
+//     async function displayTheSession () {
+//         try {
+//           const response = await fetch(`https://mysterious-reaches-13528.herokuapp.com/list/${id}`, {
+//           method: "GET"
+//         });
+//         const jsonBody = await response.json();
+//         const muscle = jsonBody.muscles_trained;
+//         console.log(muscle)
+
+//       } catch (err) {
+//         console.error(err);
+//       }
+//     };
+// }
 
   useEffect(() => {
     getSessions();
   }, []);
 
-  console.log(sessions);
-
   return (
     <Fragment>
       {" "}
         <section className = "days">
-            <p className = "day">Mon</p>
-            <p className = "day">Tue</p>
-            <p className = "day">Wed</p>
-            <p className = "day">Thu</p>
-            <p className = "day">Fri</p>
-            <p className = "day">Sat</p>
-            <p className = "day">Sun</p>
+            <p className = "day"><strong>Mon</strong></p>
+            <p className = "day"><strong>Tue</strong></p>
+            <p className = "day"><strong>Wed</strong></p>
+            <p className = "day"><strong>Thu</strong></p>
+            <p className = "day"><strong>Fri</strong></p>
+            <p className = "day"><strong>Sat</strong></p>
+            <p className = "day"><strong>Sun</strong></p>
         </section>
       <table className = "list">
         <tbody className = "containers">
           {sessions.map((session: ISession) => (
             <tr className = "entry" key={session.id}>
-              <td><button onClick = {() => myhref(session.id)}>{session.muscles_trained}</button></td>
-              {/* <td>
+               <td>
                 <EditSession session={session} />
               </td>
-              <td>
-                <button
-                  className="delete_button"
-                  onClick={() => deleteSession(session.id)}
-                >
-                  Delete
-                </button>
-              </td> */}
-            </tr>
-          ))}
+            </tr>))}
         </tbody>
       </table>
     </Fragment>

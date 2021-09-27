@@ -1,5 +1,6 @@
-.body {
+body {
     margin: 0%;
+    background-color: #7D8491
 }
 .input{
     width: 80%;
@@ -8,32 +9,31 @@
 .entry {
     border-radius: 3px;
     border: black solid 1px;
-    background-color: rgb(74, 2, 207);
     font-size: auto;
     color: white;
+    background-color: #7D8491;
     padding: 1%;
-    margin: 1%;
-    width: 12.25%;
-    display:grid;
+    margin: 0.97%;
+    width: 12%;
+    display: grid;
     text-align: center;
   }
 
   .containers{
-    margin: 0%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      margin-left: 2%;
       /* justify-content: flex-start; */
   }
 
   .list {
-    margin: 0%;
-    width: 95%;
-    margin-left: 2.5%;
+    margin: 0% 0  10% 0%;
+    width: 100%;
     align-content: flex-start;
     justify-content: flex-start;
     border: 1px double grey;
-    background-color: rgb(157, 191, 255);
+    background-color: #EAF0CE;
   }
 
   .days {
@@ -48,11 +48,11 @@
   }
 
   .day {
-    font-size: auto;
-    color: rgb(0, 0, 0);
+    font-size: 130%;
     padding: 1%;
     margin: 1%;
     width: 12.25%;
+    color: rgb(250, 250, 250);
     display:grid;
     text-align: center;
     border-left: solid black 2px;
@@ -60,16 +60,56 @@
     border-top: solid black 2px;
   }
 
-  .delete_button{
-    background-color: red;
+  .btn-delete{
+    background-color: #520000;
     color: white;
     border: black solid;
-    font-size: 60%;
+    margin: 1%;
+    font-size: 100%;
+  }
+
+  .btn-edit{
+    background-color: #a57f01;
+    color: white;
+    border: black solid;
+    margin: 1%;
+    font-size: 100%;
+  }
+
+  .btn-close{
+    background-color: #ff4617;
+    color: white;
+    border: black solid;
+    margin: 1%;
+    font-size: 100%;
   }
 
   .edit_button{
-    background-color: rgb(117, 119, 0);
+    background-color: #3F334D;
     color: white;
     border: black solid;
-    font-size: 60%;
+    font-size: 90%;
+  }
+
+  .header {
+    font-weight: bold;
+    font-size:300%;
+    text-align: center;
+    color: white;
+  }
+
+  
+  .footer {
+    font-weight: bold;
+    font-size: 150%;
+    text-align: center;
+    color: white;
+  }
+
+  .btn-success {
+    background-color: #3F334D;
+    color: white;
+    border: black solid;
+    margin: 1%;
+    font-size: 140%;
   }
