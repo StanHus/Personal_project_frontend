@@ -34,7 +34,7 @@ export default function SuggestionBox (): JSX.Element {
 
     return(
         <main>
-            <h3 className = "suggestion-box">Today, I suggest to train the {answer}</h3>
+            <h3 className = "suggestion-box">Today, it is best to have a {answer} Day</h3>
         </main>
     )
 }
