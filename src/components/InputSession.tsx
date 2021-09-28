@@ -1,15 +1,14 @@
-import React, { Fragment, useState } from "react";
 import "../css/style.css"
 import "../App.css"
 
 const InputSession = () => {
-  const [muscles_trained, setMuscles_trained] = useState("");
+  const options = ["Triceps", "Chest", "Biceps", "Back", "Shoulders", "Rest Day"]
 
-  const onSubmitForm = async (e: any) => {
-    e.preventDefault();
+  const onSelection = async (input: string) => {
+    console.log(`here comes log 2: ${input}`)
     try {
-      const body = { muscles_trained};
-         await fetch("https://mysterious-reaches-13528.herokuapp.com/list", {
+      const body = { muscles_trained: input };
+        await fetch("https://mysterious-reaches-13528.herokuapp.com/list", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -21,18 +20,25 @@ const InputSession = () => {
   };
 
   return (
-    <Fragment>
-      <form className="d-flex mt-5" onSubmit={onSubmitForm}>
-        <input
-          type="text"
-          placeholder="Put the training here"
-          className="form-control"
-          value={muscles_trained}
-          onChange={e => setMuscles_trained(e.target.value)}
-        />
-        <button className="btn-success">Add</button>
-      </form>
-    </Fragment>
+    <div>
+    <section className="dropdown">
+          <h2>Choose a session</h2>
+          <select
+              onChange={(e) => {
+              onSelection(e.target.value);
+            }}
+          >
+            <option className="dropdownelement">What are we training today?</option>
+            {options.map((val: string) => {
+              return (
+                <option className="dropdownelement" key={val} value={val}>
+                  {val}
+                </option>
+              );
+            })}
+          </select>
+        </section>
+    </div>
   );
 };
 

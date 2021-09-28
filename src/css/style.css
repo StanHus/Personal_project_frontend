@@ -94,8 +94,9 @@ body {
   .header {
     font-weight: bold;
     font-size:300%;
-    text-align: center;
+    text-align: left;
     color: white;
+    margin-left: 2%;
   }
 
   
@@ -121,4 +122,9 @@ body {
     background: goldenrod;
     padding: 1%;
     margin: 3% 0 3% 0;
+  }
+
+  .dropdown {
+    text-align: center;
+    color: white;
   }
