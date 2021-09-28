@@ -8,7 +8,7 @@ export default function SuggestionBox (): JSX.Element {
           try {
             const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/list/suggest");
             const jsonData = await response.json();
-            setAnswer(jsonData.muscles_trained)
+            setAnswer(jsonData.answer)
           } catch (err) {
             console.error(err);
           }
