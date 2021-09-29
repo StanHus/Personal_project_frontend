@@ -27,7 +27,7 @@ const ListProgress = () => {
 
   useEffect(() => {
     getProgress();
-  }, []);
+  });
 
   return (
 <Fragment>
