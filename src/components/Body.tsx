@@ -2,41 +2,78 @@ import InputSession from "./InputSession";
 import ListSessions from "./ListSessions";
 import SuggestionBox from "./Suggestions";
 import ListProgress from "./ProgressList";
-import {useState} from "react";
 import "../css/style.css"
+import { useState } from "react";
+import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
+
 
 
 function Body(): JSX.Element {
 
-const [state, setState] = useState(true)
+    const [state, setState] = useState(true)
 
-function Switch () {
-    state ? setState(false): setState(true)
-}
 
-  if(state){
-    return (
-        <section>
-          <body className="body">
-            <div className = "input">
-            <button onClick = {Switch}>Switch view</button>
-             <InputSession />
-            </div>
-             <SuggestionBox />
-             <ListSessions />
-          </body>
-        </section>
-      );
-  }
-  else {
-      return(
-          <section>
-            <button onClick = {Switch}>Switch view</button>
-            <ListProgress />
-          </section>
 
-      )
-  }
+    return(
+        <>
+         <BrowserRouter>
+            <nav>
+                   {state && 
+                        <button className="switchButton">
+                        <Link onClick={() => setState(false)} className = "navlink" to="/progress">Exercises</Link>
+                    </button>}
+                    {!state &&             
+                    <button className="switchButton">                        
+                        <Link onClick={() => setState(true)} className = "navlink" to="/">Main Page</Link>
+                    </button>}                            
+            </nav>
+            <main>
+
+                <Switch>
+                    <Route exact path = "/">
+                        <section>
+                         <body className="body">
+                         <div className = "input">
+                          <InputSession />
+                           </div>
+                          <SuggestionBox />
+                          <ListSessions />
+                       </body>
+                        </section>
+                    </Route>
+                    <Route exact path = "/progress">
+                    <section>
+                     <ListProgress />
+                    </section>
+                    </Route>
+                </Switch>
+            </main>
+         </BrowserRouter>
+        </>
+    )
+//   if(state){
+//     return (
+        // <section>
+        // <button className = "switchButton" onClick = {Switch}>{buttonName}</button>
+        //   <body className="body">
+        //     <div className = "input">
+        //      <InputSession />
+        //     </div>
+        //      <SuggestionBox />
+        //      <ListSessions />
+        //   </body>
+        // </section>
+//       );
+//   }
+//   else {
+//       return(
+        //   <section>
+        //     <button className = "switchButton" onClick = {Switch}>{buttonName}</button>
+        //     <ListProgress />
+        //   </section>
+
+//       )
+//   }
 }
 
 export default Body;

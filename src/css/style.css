@@ -111,6 +111,7 @@ body {
     background-color: #3F334D;
     color:  #EAF0CE;
     border: black solid;
+    width: 10%;
     margin: 1%;
     font-size: 140%;
   }
@@ -129,14 +130,49 @@ body {
     color: white;
   }
 
-  table {
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom:10%;
+  .tableEx {
+    width: 90%;
+    margin:5% 5% 10% 5%;
     color: white;
-  }
-
-  table, th, td {
     border: 1px solid black;
     text-align: center;
   }
+
+  .exercise {
+    border: 1px solid black;
+  }
+
+  .stat {
+    border: 1px solid black;
+  }
+
+  .switchButton {
+    text-align: center;
+    padding: 1%;
+    background-color:#a57f01;
+    color:white;
+    margin-left: 5%;
+  }
+
+  .subheader {
+    color: white;
+    text-align: center;
+  }
+
+  .form-control{
+    width: 12%;
+    display: flex;
+    margin: 1%
+}
+
+.inputs{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 2%;
+  /* justify-content: flex-start; */
+}
+
+.navlink {
+  color: white;
+}

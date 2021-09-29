@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/style.css"
+import InputExercise from "./InputExercise";
 
 const ListProgress = () => {
   const [progress, setProgress] = useState([]);
@@ -24,7 +25,6 @@ const ListProgress = () => {
       console.error(err);
     }
   };
-      // getProgress()
 
   useEffect(() => {
     getProgress();
@@ -32,23 +32,24 @@ const ListProgress = () => {
 
   return (
 <Fragment>
-  <table>
-      <tr>
-        <th>Date</th>
-        <th>Muscle Group</th>
-        <th>Exercise Name</th>
-        <th>Sets</th>
-        <th>Reps</th>
-        <th>Weight</th>
+  <InputExercise />
+  <table className = "tableEx">
+      <tr className = "exercise">
+        <th className = "stat">Date</th>
+        <th className = "stat">Muscle Group</th>
+        <th className = "stat">Exercise Name</th>
+        <th className = "stat">Sets</th>
+        <th className = "stat">Reps</th>
+        <th className = "stat">Weight</th>
       </tr>
         {progress.map((entry: IEntry) => (
           <tr className = "exercise" key={entry.ex_id}>
-            <td>{entry.date}</td>
-            <td>{entry.muscle_group}</td>
-            <td>{entry.exercise_name}</td>
-            <td>{entry.sets}</td>
-            <td>{entry.reps}</td>
-            <td>{entry.weight}</td>
+            <td className = "stat">{entry.date.slice(0,10)}</td>
+            <td className = "stat">{entry.muscle_group}</td>
+            <td className = "stat">{entry.exercise_name}</td>
+            <td className = "stat">{entry.sets}</td>
+            <td className = "stat">{entry.reps}</td>
+            <td className = "stat">{entry.weight}</td>
           </tr>))}
   </table>
   </Fragment>
