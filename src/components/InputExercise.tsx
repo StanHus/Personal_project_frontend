@@ -40,42 +40,42 @@ const InputExercise = () => {
         <input
           type="text"
           placeholder="Date"
-          className="form-control"
+          className="ex-input"
           value={date}
           onChange={e => setDate(e.target.value)}
         />
         <input
           type="text"
           placeholder="Muscle Group"
-          className="form-control"
+          className="ex-input"
           value={muscle_group}
           onChange={e => setMuscle_group(e.target.value)}
         />
         <input
           type="text"
           placeholder="Ex name"
-          className="form-control"
+          className="ex-input"
           value={exercise_name}
           onChange={e => setExercise_name(e.target.value)}
         />
         <input
           type="text"
           placeholder="Sets"
-          className="form-control"
+          className="ex-input"
           value={sets}
           onChange={e => setSets(e.target.value)}
         />
         <input
           type="text"
           placeholder="Reps"
-          className="form-control"
+          className="ex-input"
           value={reps}
           onChange={e => setReps(e.target.value)}
         />
         <input
           type="text"
           placeholder="Weight"
-          className="form-control"
+          className="ex-input"
           value={weight}
           onChange={e => setWeight(e.target.value)}
         />

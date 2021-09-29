@@ -160,9 +160,9 @@ body {
   }
 
   .form-control{
-    width: 12%;
+    width: 100%;
     display: flex;
-    margin: 1%
+    margin: 1%;
 }
 
 .inputs{
@@ -175,4 +175,10 @@ body {
 
 .navlink {
   color: white;
+}
+
+.ex-input{
+  width: 12%;
+  display: flex;
+  margin: 1%
 }

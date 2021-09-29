@@ -7,12 +7,8 @@ import { useState } from "react";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 
 
-
 function Body(): JSX.Element {
-
     const [state, setState] = useState(true)
-
-
 
     return(
         <>
@@ -51,29 +47,6 @@ function Body(): JSX.Element {
          </BrowserRouter>
         </>
     )
-//   if(state){
-//     return (
-        // <section>
-        // <button className = "switchButton" onClick = {Switch}>{buttonName}</button>
-        //   <body className="body">
-        //     <div className = "input">
-        //      <InputSession />
-        //     </div>
-        //      <SuggestionBox />
-        //      <ListSessions />
-        //   </body>
-        // </section>
-//       );
-//   }
-//   else {
-//       return(
-        //   <section>
-        //     <button className = "switchButton" onClick = {Switch}>{buttonName}</button>
-        //     <ListProgress />
-        //   </section>
-
-//       )
-//   }
 }
 
 export default Body;
