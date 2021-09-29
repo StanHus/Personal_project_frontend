@@ -6,7 +6,7 @@ export default function SuggestionBox (): JSX.Element {
 
     const suggestPlease = async () => {
           try {
-            const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/list/suggest");
+            const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/suggest");
             const jsonData = await response.json();
             setAnswer(jsonData.answer)
           } catch (err) {
