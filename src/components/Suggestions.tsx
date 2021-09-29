@@ -14,20 +14,6 @@ export default function SuggestionBox (): JSX.Element {
           }
         };
 
-        //post
-        // const postIt = async (str: string) => {
-        // try {
-        //        await fetch("https://mysterious-reaches-13528.herokuapp.com/list", {
-        //       method: "POST",
-        //       headers: { "Content-Type": "application/json" },
-        //       body: JSON.stringify(str)
-        //     });
-        //     window.location.href = "/";
-        //   } catch (err) {
-        //     console.error(err);
-        //   }
-        // }
-
         useEffect(() => {
            suggestPlease();
           });
