@@ -21,24 +21,6 @@ const ListSessions = () => {
     }
   };
 
-//   function openIt(id: number) {
-//     window.location.href = `https://mysterious-reaches-13528.herokuapp.com/${id}`;
-//     displayTheSession()
-//     async function displayTheSession () {
-//         try {
-//           const response = await fetch(`https://mysterious-reaches-13528.herokuapp.com/list/${id}`, {
-//           method: "GET"
-//         });
-//         const jsonBody = await response.json();
-//         const muscle = jsonBody.muscles_trained;
-//         console.log(muscle)
-
-//       } catch (err) {
-//         console.error(err);
-//       }
-//     };
-// }
-
   useEffect(() => {
     getSessions();
   }, []);

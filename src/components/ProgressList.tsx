@@ -19,15 +19,16 @@ const ListProgress = () => {
       const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/progress");
       const jsonData = await response.json();
       setProgress(jsonData);
-      console.log(progress)
+      console.log("I am an issue")
     } catch (err) {
       console.error(err);
     }
   };
+      // getProgress()
 
   useEffect(() => {
     getProgress();
-  });
+  }, []);
 
   return (
 <Fragment>

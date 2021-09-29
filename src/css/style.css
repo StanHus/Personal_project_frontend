@@ -128,3 +128,15 @@ body {
     text-align: center;
     color: white;
   }
+
+  table {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom:10%;
+    color: white;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
