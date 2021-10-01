@@ -1,12 +1,13 @@
-import React, { Fragment, useEffect, useState } from "react";
 import "../../css/style.css"
+//import SortByExercise from "./SortByExercise";
 import SortByMuscle from "./SortByMuscle";
 
 const Analysis = () => {
 
   return (
         <>
-        <SortByMuscle />
+          <SortByMuscle />
+          {/* <SortByExercise /> */}
         </>
   );
 };
