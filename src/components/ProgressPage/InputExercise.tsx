@@ -1,5 +1,4 @@
-import "../css/style.css"
-import "../App.css"
+import "../../css/style.css"
 import {useState} from "react"
 
 const InputExercise = () => {

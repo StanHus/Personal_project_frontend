@@ -1,4 +1,4 @@
-import "../css/style.css"
+import "../../css/style.css"
 import {useState, useEffect} from "react";
 
 export default function SuggestionBox (): JSX.Element {

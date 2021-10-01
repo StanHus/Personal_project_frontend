@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import EditSession from "./EditSession";
-import "../css/style.css"
-import "../App.css"
+import "../../css/style.css"
+
 
 interface ISession {
   id: number,

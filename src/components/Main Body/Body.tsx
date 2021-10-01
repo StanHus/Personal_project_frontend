@@ -1,8 +1,9 @@
 import InputSession from "./InputSession";
 import ListSessions from "./ListSessions";
 import SuggestionBox from "./Suggestions";
-import ListProgress from "./ProgressList";
-import "../css/style.css"
+import ListProgress from "../ProgressPage/ProgressList";
+import Analysis from "../Analysis Page/Analysis";
+import "../../css/style.css"
 import { useState } from "react";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 
@@ -21,10 +22,13 @@ function Body(): JSX.Element {
                     {!state &&             
                     <button className="switchButton">                        
                         <Link onClick={() => setState(true)} className = "navlink" to="/">Main Page</Link>
+                    </button>}
+                    {!state &&             
+                    <button className="switchButton">                        
+                        <Link onClick={() => setState(true)} className = "navlink" to="/analysis">Analysis</Link>
                     </button>}                            
             </nav>
             <main>
-
                 <Switch>
                     <Route exact path = "/">
                         <section>
@@ -38,9 +42,14 @@ function Body(): JSX.Element {
                         </section>
                     </Route>
                     <Route exact path = "/progress">
-                    <section>
-                     <ListProgress />
-                    </section>
+                        <section>
+                            <ListProgress />
+                        </section>
+                    </Route>
+                    <Route exact path = "/analysis">
+                        <section>
+                            <Analysis />
+                        </section>
                     </Route>
                 </Switch>
             </main>

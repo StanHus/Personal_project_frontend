@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
-import "../css/style.css"
+import "../../css/style.css"
 import InputExercise from "./InputExercise";
 
 const ListProgress = () => {
   const [progress, setProgress] = useState([]);
 
   interface IEntry {
-    ex_id: number,
+    session_id: number,
     date: string,
     muscle_group: string,
     exercise_name: string,
@@ -26,6 +26,14 @@ const ListProgress = () => {
     }
   };
 
+  const deleteExercise = async (id: number) => {
+    await fetch(`https://mysterious-reaches-13528.herokuapp.com/progress/${id}`, {
+     method: "DELETE"
+   });
+   setProgress(progress.filter((entry: IEntry) => entry.session_id !== id));
+   window.location.href = "/progress";
+};
+
   useEffect(() => {
     getProgress();
   }, []);
@@ -41,15 +49,25 @@ const ListProgress = () => {
         <th className = "stat">Sets</th>
         <th className = "stat">Reps</th>
         <th className = "stat">Weight</th>
+        <th className = "stat">Delete</th>
       </tr>
         {progress.map((entry: IEntry) => (
-          <tr className = "exercise" key={entry.ex_id}>
+          <tr className = "exercise" key={entry.session_id}>
             <td className = "stat">{entry.date.slice(0,10)}</td>
             <td className = "stat">{entry.muscle_group}</td>
             <td className = "stat">{entry.exercise_name}</td>
             <td className = "stat">{entry.sets}</td>
             <td className = "stat">{entry.reps}</td>
             <td className = "stat">{entry.weight}</td>
+            <td className = "stat">
+              <button
+                  type="button"
+                  className="btn-delete"
+                  data-dismiss="modal"
+                  onClick={() => deleteExercise(entry.session_id)}
+                >
+                  Delete
+                </button></td>
           </tr>))}
   </table>
   </Fragment>

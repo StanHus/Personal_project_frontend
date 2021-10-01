@@ -1,5 +1,4 @@
-import "../css/style.css"
-import "../App.css"
+import "../../css/style.css"
 
 const InputSession = () => {
   const options = ["Triceps", "Chest", "Biceps", "Back", "Shoulders", "Rest Day"]

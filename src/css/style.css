@@ -182,3 +182,14 @@ body {
   display: flex;
   margin: 1%
 }
+
+.dropdownMuscle {
+  margin-left:5%;
+  margin-top:3%;
+  color: black;
+  text-align: center;
+  width:20%;
+  min-height:30%;
+  text-align: center;
+  font-size: 18px;
+}
