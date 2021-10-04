@@ -3,7 +3,7 @@ import "../../css/style.css"
 
 const SortByMuscle = () => {
   const [progress, setProgress] = useState([]);
-  const [muscle, setMuscle] = useState("All")
+  const [muscle, setMuscle] = useState("")
   const options = ["Triceps", "Chest", "Biceps", "Back", "Shoulders"]
 
   interface IEntry {
@@ -33,6 +33,10 @@ const SortByMuscle = () => {
 
   return (
 <Fragment>
+  <head>
+    
+  </head>
+  <body>
    <section className="dropdownMuscles">
           <select
             className="dropdownMuscle"
@@ -42,7 +46,7 @@ const SortByMuscle = () => {
               setMuscle(selectedMuscle);
             }}
           >
-            <option className="dropdownMuscle" value="All">Show the last 15 exercises</option>
+            <option className="dropdownMuscle" value="">Hide all</option>
             {options.map((val: string) => {
               return (
                 <option className="dropdownMuscle" key={val} value={val}>
@@ -79,7 +83,8 @@ const SortByMuscle = () => {
             <td className = "stat">{entry.weight}</td>
           </tr>))}
   </table>
-  </Fragment>
+  </body>
+</Fragment>
   );
 };
 

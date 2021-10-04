@@ -36,7 +36,7 @@ const SortByExercise = () => {
               setExercise(selectedExercise);
             }}
           >
-            <option className="dropdownMuscle" value="">Choose an exercise to analyse</option>
+            <option className="dropdownMuscle" value="">Hide all</option>
             {options.map((val: string) => {
               return (
                 <option className="dropdownMuscle" key={val} value={val}>
@@ -52,6 +52,7 @@ const SortByExercise = () => {
         <th className = "stat">Total Weight</th>
       </tr>
         {progression.filter((val: IExercise) => {
+          console.log(exercise)
               let ans;
               if (exercise === "All") {
                 ans = val;

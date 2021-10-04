@@ -25,6 +25,7 @@ const InputExercise = () => {
             weight: weight
           }),
       });
+      window.location.href = "/progress";
     } catch (err) {
       console.error(err);
     }
