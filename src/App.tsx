@@ -33,7 +33,6 @@ function App() {
             <main>
                 <Switch>
                     <Route exact path = "/">
-                    
                         <section>
                         <Header />
                          <body className="body">
