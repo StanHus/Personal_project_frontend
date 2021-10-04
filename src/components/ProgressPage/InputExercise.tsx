@@ -23,10 +23,8 @@ const InputExercise = () => {
             sets: sets,
             reps: reps,
             weight: weight
-
           }),
       });
-      window.location.href = "/progress";
     } catch (err) {
       console.error(err);
     }
