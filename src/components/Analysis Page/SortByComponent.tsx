@@ -34,16 +34,12 @@ const SortByMuscle = () => {
     getProgress();
   }, []);
 
-//   function DrawChart (data: any) {
-//     return (
-//     )
-// }
-
   return (
 <Fragment>
   <head>
   </head>
   <body>
+  <h2 className= "subHeading">List Exercises</h2>
    <section className="dropdownMuscles">
           <select
             className="dropdownMuscle"

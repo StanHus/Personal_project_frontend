@@ -16,6 +16,7 @@ function App() {
     return(
         <>
          <BrowserRouter>
+            <Header />
             <nav>
                    {state && 
                         <button className="switchButton">
@@ -34,7 +35,6 @@ function App() {
                 <Switch>
                     <Route exact path = "/">
                         <section>
-                        <Header />
                          <body className="body">
                          <div className = "input">
                           <InputSession />
@@ -43,23 +43,19 @@ function App() {
                           <ListSessions />
                        </body>
                        <Footer />
-                      </section>
-                      
+                      </section> 
                     </Route>
                     <Route exact path = "/progress">
                         <section>
-                            <Header />
                             <ListProgress />
                             <Footer />
                         </section>
                     </Route>
                     <Route exact path = "/analysis">
                         <section>
-                            <Header />
                             <Analysis />
                             <Footer />
                         </section>
-                        
                     </Route>
                 </Switch>
             </main>

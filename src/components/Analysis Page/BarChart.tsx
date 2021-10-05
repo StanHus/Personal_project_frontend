@@ -8,8 +8,6 @@ interface IChart {
 
 
 export default function BarChart (props: IChart): JSX.Element {
-console.log(props.chartStats)
-console.log(props.chartOptions)
     const chartData = {
         labels: props.chartOptions,
         datasets: [
