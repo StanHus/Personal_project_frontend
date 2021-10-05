@@ -193,3 +193,10 @@ body {
   text-align: center;
   font-size: 18px;
 }
+
+.barchart {
+  background-color:white;
+  max-width: 60%;
+  max-height: 60%;
+  margin-left: 20%;
+}

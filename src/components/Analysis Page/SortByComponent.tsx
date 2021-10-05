@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../css/style.css"
 
+
+
 const SortByMuscle = () => {
   const [progress, setProgress] = useState([]);
   const [muscle, setMuscle] = useState("")
-  const options = ["Triceps", "Chest", "Biceps", "Back", "Shoulders"]
+  const muscleOptions = ["Triceps", "Chest", "Biceps", "Back", "Shoulders"]
 
   interface IEntry {
     session_id: number,
@@ -27,14 +29,19 @@ const SortByMuscle = () => {
     }
   };
 
+
   useEffect(() => {
     getProgress();
   }, []);
 
+//   function DrawChart (data: any) {
+//     return (
+//     )
+// }
+
   return (
 <Fragment>
   <head>
-    
   </head>
   <body>
    <section className="dropdownMuscles">
@@ -47,7 +54,7 @@ const SortByMuscle = () => {
             }}
           >
             <option className="dropdownMuscle" value="">Hide all</option>
-            {options.map((val: string) => {
+            {muscleOptions.map((val: string) => {
               return (
                 <option className="dropdownMuscle" key={val} value={val}>
                   Show only {val}
