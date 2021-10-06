@@ -39,7 +39,7 @@ const SortByMuscle = () => {
   <head>
   </head>
   <body>
-  <h2 className= "subHeading">List Exercises</h2>
+  <h2 className= "subHeading">Exercises Filtered by Muscle Group</h2>
    <section className="dropdownMuscles">
           <select
             className="dropdownMuscle"
