@@ -6,6 +6,7 @@ import { Bar } from 'react-chartjs-2';
 const SortByExercise = () => {
   const [exercise, setExercise] = useState("")
   const [progression, setProgression] = useState([]);
+  const [analysis, setAnalysis] = useState([]);
   const [options, setOptions] = useState([]);
   const [displayChart, setDisplayChart] = useState(false)
 
@@ -15,19 +16,40 @@ const SortByExercise = () => {
     date: string
   }
 
+  interface IAnalysis {
+    exercise_name: string,
+    total_weight: number, 
+    days_trained: number, 
+    average_total_weight: number,
+    average_weight: number,
+    average_sets: number,
+    average_reps: number
+  }
+
   interface IListItem {
     exercise_name: string
   }
 
-  const getProgression = async () => {
+  const getExercises = async () => {
     try {
-      const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/analysis");
+      const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/exercises");
       const jsonData = await response.json();
       setProgression(jsonData);
     } catch (err) {
       console.error(err);
     }
   };
+
+  const getAnalysis = async () => {
+    try {
+      const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/analysis");
+      const jsonData = await response.json();
+      setAnalysis(jsonData);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
 
   const getOptions = async () => {
     try {
@@ -40,8 +62,9 @@ const SortByExercise = () => {
   };
 
   useEffect(() => {
-    getProgression()
+    getExercises()
     getOptions()
+    getAnalysis()
   }, []);
 
   const list: string[] = []
@@ -51,22 +74,12 @@ const SortByExercise = () => {
   }
   listOptions()
 
-  console.log(list)
-
-  const filteredProgression = progression.filter((val: IExercise) => {
-    let ans;
-    if (exercise === "All") {
-      ans = val;
-    } else if (val.exercise_name ===exercise) {
-      ans = val;
-    }
-    return ans;
-  })
-
   let chartOptions: string[] =[]
   let chartStats: number[] = []
 
-const progressionMappped = filteredProgression.map((entry: IExercise) => {
+  const filteredProgression = progression.filter((val: IExercise) => (exercise === "All" || val.exercise_name === exercise) ? val :  "")
+
+  const progressionMappped = filteredProgression.map((entry: IExercise) => {
   chartStats.push(entry.total_weight)
   chartOptions.push(entry.date.slice(0,10))
   return (
@@ -91,6 +104,10 @@ const chartData = {
     },
   ],
 };
+  const increaseWeight = (num: number) => ((num % 4 === 0) ? num+4 : (Math.ceil(num/4))*4)
+
+  const pulledAnalysis = analysis.filter((val: IAnalysis) => (val.exercise_name === exercise)).map((val: IAnalysis) => (<p className ="analysisText">You trained {val.exercise_name} {val.days_trained} times. The average weight per rep per session was {Math.floor(val.average_total_weight)} kgs. This means next time you ideally need to do {Math.ceil(val.average_sets)} sets, with {Math.ceil(val.average_reps)} reps each, with a weight of at least {increaseWeight(val.average_weight/(val.average_reps*val.average_sets))} kgs.</p>))
+  
 
 
   return (
@@ -114,6 +131,7 @@ const chartData = {
             })}
           </select>
         </section>
+            <p>{pulledAnalysis}</p>
   <table className = "tableEx">
       <tr className = "exercise">
         <th className = "stat">Exercise Name</th>
