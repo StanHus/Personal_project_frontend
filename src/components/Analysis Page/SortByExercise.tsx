@@ -106,7 +106,7 @@ const chartData = {
 };
   const increaseWeight = (num: number) => ((num % 4 === 0) ? num+4 : (Math.ceil(num/4))*4)
 
-  const pulledAnalysis = analysis.filter((val: IAnalysis) => (val.exercise_name === exercise)).map((val: IAnalysis) => (<p className ="analysisText">You trained {val.exercise_name} {val.days_trained} times. The average weight per rep per session was {Math.floor(val.average_total_weight)} kgs. This means next time you ideally need to do {Math.ceil(val.average_sets)} sets, with {Math.ceil(val.average_reps)} reps each, with a weight of at least {increaseWeight(val.average_weight/(val.average_reps*val.average_sets))} kgs.</p>))
+  const pulledAnalysis = analysis.filter((val: IAnalysis) => (val.exercise_name === exercise)).map((val: IAnalysis) => (<p className ="analysisText">You trained {val.exercise_name} {val.days_trained} {(val.days_trained > 1) ? "times" : "time"}. The average weight per rep per session was {Math.floor(val.average_total_weight)} kgs. This means next time you ideally need to do {Math.ceil(val.average_sets)} sets, with {Math.ceil(val.average_reps)} reps each, with a weight of at least {increaseWeight(val.average_weight/(val.average_reps*val.average_sets))} kgs.</p>))
   
 
 
