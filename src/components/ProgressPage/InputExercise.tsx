@@ -36,10 +36,11 @@ const InputExercise = () => {
       <h2 className = "subheader">Input the stats</h2>
       <form className = "inputs" onSubmit={onSubmitForm}>
         <input
-          type="text"
+          type="date"
           placeholder="Date"
           className="ex-input"
           value={date}
+          min="2021-10-01"
           onChange={e => setDate(e.target.value)}
         />
         <input

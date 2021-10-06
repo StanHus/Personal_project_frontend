@@ -122,7 +122,7 @@ const chartData = {
         {progressionMappped}
   </table>
     <button className = "showButton" onClick = {() => (
-      displayChart ? setDisplayChart(false): setDisplayChart(true))}>Draw it for me</button>
+      displayChart ? setDisplayChart(false): setDisplayChart(true))}>{!displayChart ? "Illustate" : "Hide chart"}</button>
     {displayChart && <Bar className = "barchart"data={chartData} />}
 </body>
 </Fragment>)};
