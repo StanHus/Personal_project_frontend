@@ -1,22 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../css/style.css"
-
-
+import {IEntry} from "./interfaces"
 
 const SortByMuscle = () => {
   const [progress, setProgress] = useState([]);
   const [muscle, setMuscle] = useState("")
   const muscleOptions = ["Triceps", "Chest", "Biceps", "Back", "Shoulders"]
-
-  interface IEntry {
-    session_id: number,
-    date: string,
-    muscle_group: string,
-    exercise_name: string,
-    sets: number,
-    reps: number,
-    weight: number
-  }
 
   const getProgress = async () => {
     try {
@@ -36,8 +25,6 @@ const SortByMuscle = () => {
 
   return (
 <Fragment>
-  <head>
-  </head>
   <body>
   <h2 className= "subHeading">Exercises Filtered by Muscle Group</h2>
    <section className="dropdownMuscles">
