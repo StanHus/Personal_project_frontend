@@ -2,7 +2,7 @@ import InputSession from "./components/Main Body/InputSession";
 import ListSessions from "./components/Main Body/ListSessions";
 import SuggestionBox from "./components/Main Body/Suggestions";
 import ListProgress from "./components/ProgressPage/ProgressList";
-import Analysis from "./components/Analysis Page/Analysis";
+import Analysis from "./components/Analysis Page/AnalysisMain";
 import "../../css/style.css"
 import { useState } from "react";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";

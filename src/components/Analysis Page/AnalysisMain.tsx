@@ -1,6 +1,6 @@
 import "../../css/style.css"
 import SortByExercise from "./SortByExercise";
-import SortByMuscle from "./SortByComponent";
+import SortByMuscle from "./SortByMuscle";
 
 const Analysis = () => {
 
