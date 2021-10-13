@@ -5,6 +5,7 @@ import ListSessions from "./components/Main Body/ListSessions";
 import SuggestionBox from "./components/Main Body/Suggestions";
 import ListProgress from "./components/ProgressPage/ProgressList";
 import Analysis from "./components/Analysis Page/AnalysisMain";
+import SignUp from "./components/users/CreateUser";
 import "./css/style.css"
 import { useState } from "react";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
@@ -29,7 +30,10 @@ function App() {
                     {!state &&             
                     <button className="switchButton">                        
                         <Link onClick={() => setState(true)} className = "navlink" to="/analysis">Analysis</Link>
-                    </button>}                            
+                    </button>}
+                    <button className="switchButton"> 
+                        <Link className = "navlink" to="/userPage">UsersPage</Link>
+                    </button>                           
             </nav>
             <main>
                 <Switch>
@@ -55,6 +59,11 @@ function App() {
                         <section>
                             <Analysis />
                             <Footer />
+                        </section>
+                    </Route>
+                    <Route exact path = "/userPage">
+                        <section>
+                            <SignUp />
                         </section>
                     </Route>
                 </Switch>

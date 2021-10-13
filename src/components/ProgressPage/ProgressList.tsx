@@ -17,7 +17,7 @@ const ListProgress = () => {
 
   const getProgress = async () => {
     try {
-      const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/progress");
+      const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/progressFull");
       const jsonData = await response.json();
       setProgress(jsonData);
       console.log("I am an issue")
