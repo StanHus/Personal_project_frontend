@@ -31,9 +31,9 @@ function App() {
                     <button className="switchButton">                        
                         <Link onClick={() => setState(true)} className = "navlink" to="/analysis">Analysis</Link>
                     </button>}
-                    <button className="switchButton"> 
+                    {/* <button className="switchButton"> 
                         <Link className = "navlink" to="/userPage">UsersPage</Link>
-                    </button>                           
+                    </button>                            */}
             </nav>
             <main>
                 <Switch>
@@ -61,11 +61,11 @@ function App() {
                             <Footer />
                         </section>
                     </Route>
-                    <Route exact path = "/userPage">
+                    {/* <Route exact path = "/userPage">
                         <section>
                             <SignUp />
                         </section>
-                    </Route>
+                    </Route> */}
                 </Switch>
             </main>
          </BrowserRouter>
