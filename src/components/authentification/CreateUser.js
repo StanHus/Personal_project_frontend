@@ -56,10 +56,10 @@ export default function SignUp() {
             </Button>
           </Form>
         </Card.Body>
+        <div className="w-100 text-center mt-2">
+          Already have an account? <Link to="/login">Log In</Link>
+        </div>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
-      </div>
     </Fragment>
   );
 }

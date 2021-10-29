@@ -11,7 +11,7 @@ export default function LoginPage() {
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function LoginPage() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/")
+      history.push("/");
     } catch (error) {
       console.log(error);
       setError("Failed to log in");
@@ -47,10 +47,10 @@ export default function LoginPage() {
             </Button>
           </Form>
         </Card.Body>
+        <div className="w-100 text-center mt-2">
+          Don't have an account? <Link to="/signUp">Sign up!</Link>
+        </div>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Don't have an account? <Link to="/signUp">Sign up!</Link>
-      </div>
     </Fragment>
   );
 }

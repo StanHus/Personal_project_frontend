@@ -11,7 +11,8 @@ import { useState } from "react";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import LoginPage from "./components/authentification/LogMeIn";
 import { AuthProvider } from "./components/authentification/AuthContext";
-import { currentUser } from "./firebase";
+import Dashboard from "./components/authentification/Dashboard";
+import PrivateRoute from "./components/authentification/PrivateRoute";
 
 function App() {
   const [state, setState] = useState(true);
@@ -52,8 +53,8 @@ function App() {
               </button>
             )}
             <button className="switchButton">
-              <Link className="navlink" to="/signUp">
-                Users page
+              <Link className="navlink" to="/user">
+                User Dashboard
               </Link>
             </button>
           </nav>
@@ -86,6 +87,7 @@ function App() {
               <Route exact path="/login">
                 <LoginPage />
               </Route>
+              <PrivateRoute exact path="/user" component={Dashboard} />
               <Route exact path="/signUp">
                 <SignUp />
               </Route>
