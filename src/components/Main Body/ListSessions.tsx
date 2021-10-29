@@ -1,19 +1,23 @@
 import React, { Fragment, useEffect, useState } from "react";
 import EditSession from "./EditSession";
-import "../../css/style.css"
-
+import "../../css/style.css";
+import { useAuth } from "../authentification/AuthContext";
 
 interface ISession {
-  id: number,
-  muscles_trained: string
+  id: number;
+  muscles_trained: string;
+  user_email: string;
 }
 
 const ListSessions = () => {
   const [sessions, setSessions] = useState([]);
+  const { currentUser } = useAuth();
 
   const getSessions = async () => {
     try {
-      const response = await fetch("https://mysterious-reaches-13528.herokuapp.com/list");
+      const response = await fetch(
+        "https://mysterious-reaches-13528.herokuapp.com/list"
+      );
       const jsonData = await response.json();
       setSessions(jsonData);
     } catch (err) {
@@ -25,30 +29,57 @@ const ListSessions = () => {
     getSessions();
   }, []);
 
-  return (
-    <Fragment>
-      {" "}
-        <section className = "days">
-            <p className = "day"><strong>Mon</strong></p>
-            <p className = "day"><strong>Tue</strong></p>
-            <p className = "day"><strong>Wed</strong></p>
-            <p className = "day"><strong>Thu</strong></p>
-            <p className = "day"><strong>Fri</strong></p>
-            <p className = "day"><strong>Sat</strong></p>
-            <p className = "day"><strong>Sun</strong></p>
+  if (currentUser === null)
+    return (
+      <Fragment>
+        <h2 className="footer">No data yet</h2>
+      </Fragment>
+    );
+  else {
+    return (
+      <Fragment>
+        {" "}
+        <section className="days">
+          <p className="day">
+            <strong>Mon</strong>
+          </p>
+          <p className="day">
+            <strong>Tue</strong>
+          </p>
+          <p className="day">
+            <strong>Wed</strong>
+          </p>
+          <p className="day">
+            <strong>Thu</strong>
+          </p>
+          <p className="day">
+            <strong>Fri</strong>
+          </p>
+          <p className="day">
+            <strong>Sat</strong>
+          </p>
+          <p className="day">
+            <strong>Sun</strong>
+          </p>
         </section>
-      <table className = "list">
-        <tbody className = "containers">
-          {sessions.map((session: ISession) => (
-            <tr className = "entry" key={session.id}>
-               <td>
-                <EditSession session={session} />
-              </td>
-            </tr>))}
-        </tbody>
-      </table>
-    </Fragment>
-  );
+        <table className="list">
+          <tbody className="containers">
+            {sessions
+              .filter((session: ISession) => {
+                return session.user_email === currentUser.email;
+              })
+              .map((session: ISession) => (
+                <tr className="entry" key={session.id}>
+                  <td>
+                    <EditSession session={session} />
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </Fragment>
+    );
+  }
 };
 
 export default ListSessions;

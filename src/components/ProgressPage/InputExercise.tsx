@@ -1,29 +1,35 @@
-import "../../css/style.css"
-import {useState} from "react"
+import "../../css/style.css";
+import { useAuth } from "../authentification/AuthContext";
+import { Fragment, useState } from "react";
 
 const InputExercise = () => {
+  const [date, setDate] = useState("");
+  const [muscle_group, setMuscle_group] = useState("");
+  const [exercise_name, setExercise_name] = useState("");
+  const [sets, setSets] = useState("");
+  const [reps, setReps] = useState("");
+  const [weight, setWeight] = useState("");
+  const { currentUser } = useAuth();
+  const [userEmail, setUserEmail] = useState("");
+  if (currentUser) {
+    setUserEmail(currentUser.email);
+  }
 
-    const [date, setDate] = useState("")
-    const [muscle_group, setMuscle_group] = useState("")
-    const [exercise_name, setExercise_name] = useState("")
-    const [sets, setSets] = useState("")
-    const [reps, setReps] = useState("")
-    const [weight, setWeight] = useState("")
-  
-    const onSubmitForm = async (e: any) => {
-        e.preventDefault();
+  const onSubmitForm = async (e: any) => {
+    e.preventDefault();
     try {
-        await fetch("https://mysterious-reaches-13528.herokuapp.com/progress", {
+      await fetch("https://mysterious-reaches-13528.herokuapp.com/progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            date: date,
-            muscle_group: muscle_group,
-            exercise_name: exercise_name,
-            sets: sets,
-            reps: reps,
-            weight: weight
-          }),
+          date: date,
+          muscle_group: muscle_group,
+          exercise_name: exercise_name,
+          sets: sets,
+          reps: reps,
+          weight: weight,
+          user_email: userEmail,
+        }),
       });
       window.location.href = "/progress";
     } catch (err) {
@@ -33,8 +39,8 @@ const InputExercise = () => {
 
   return (
     <div>
-      <h2 className = "subheader">Input the stats</h2>
-      <form className = "inputs" onSubmit={onSubmitForm}>
+      <h2 className="subheader">Input the stats</h2>
+      <form className="inputs" onSubmit={onSubmitForm}>
         <input
           type="date"
           placeholder="Date"
@@ -78,7 +84,7 @@ const InputExercise = () => {
           value={weight}
           onChange={e => setWeight(e.target.value)}
         />
-        <button className = "btn-success">Add</button>
+        <button className="btn-success">Add</button>
       </form>
     </div>
   );

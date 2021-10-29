@@ -24,7 +24,7 @@ export default function SignUp() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
+      history.push("/dashboard");
     } catch (error) {
       console.log(error);
       setError("Failed to create an account");
