@@ -5,11 +5,13 @@ import ListSessions from "./components/Main Body/ListSessions";
 import SuggestionBox from "./components/Main Body/Suggestions";
 import ListProgress from "./components/ProgressPage/ProgressList";
 import Analysis from "./components/Analysis Page/AnalysisMain";
-import SignUp from "./components/users/CreateUser";
+import SignUp from "./components/authentification/CreateUser";
 import "./css/style.css";
 import { useState } from "react";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import LoginSection from "./components/users/LoginSection";
+import LoginPage from "./components/authentification/LogMeIn";
+import { AuthProvider } from "./components/authentification/AuthContext";
+import { currentUser } from "./firebase";
 
 function App() {
   const [state, setState] = useState(true);
@@ -17,81 +19,79 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <nav>
-          {state && (
+        <AuthProvider>
+          <Header />
+          <nav>
+            {state && (
+              <button className="switchButton">
+                <Link
+                  onClick={() => setState(false)}
+                  className="navlink"
+                  to="/progress"
+                >
+                  Exercises
+                </Link>
+              </button>
+            )}
+            {!state && (
+              <button className="switchButton">
+                <Link onClick={() => setState(true)} className="navlink" to="/">
+                  Main Page
+                </Link>
+              </button>
+            )}
+            {!state && (
+              <button className="switchButton">
+                <Link
+                  onClick={() => setState(true)}
+                  className="navlink"
+                  to="/analysis"
+                >
+                  Analysis
+                </Link>
+              </button>
+            )}
             <button className="switchButton">
-              <Link
-                onClick={() => setState(false)}
-                className="navlink"
-                to="/progress"
-              >
-                Exercises
+              <Link className="navlink" to="/signUp">
+                Users page
               </Link>
             </button>
-          )}
-          {!state && (
-            <button className="switchButton">
-              <Link onClick={() => setState(true)} className="navlink" to="/">
-                Main Page
-              </Link>
-            </button>
-          )}
-          {!state && (
-            <button className="switchButton">
-              <Link
-                onClick={() => setState(true)}
-                className="navlink"
-                to="/analysis"
-              >
-                Analysis
-              </Link>
-            </button>
-          )}
-          <button className="switchButton">
-            <Link className="navlink" to="/signUp">
-              UsersPage
-            </Link>
-          </button>
-        </nav>
-        <main>
-          <Switch>
-            <Route exact path="/">
-              <section>
-                <body className="body">
-                  <div className="input">
-                    <InputSession />
-                  </div>
-                  <SuggestionBox />
-                  <ListSessions />
-                </body>
-                <Footer />
-              </section>
-            </Route>
-            <Route exact path="/progress">
-              <section>
-                <ListProgress />
-                <Footer />
-              </section>
-            </Route>
-            <Route exact path="/analysis">
-              <section>
-                <Analysis />
-                <Footer />
-              </section>
-            </Route>
-            <Route exact path="/login">
-              <section>
-                <LoginSection />
-              </section>
-            </Route>
-            <Route exact path="/signUp">
-              <section>
+          </nav>
+          <main>
+            <Switch>
+              <Route exact path="/">
+                <section>
+                  <body className="body">
+                    <div className="input">
+                      <InputSession />
+                    </div>
+                    <SuggestionBox />
+                    <ListSessions />
+                  </body>
+                  <Footer />
+                </section>
+              </Route>
+              <Route exact path="/progress">
+                <section>
+                  <ListProgress />
+                  <Footer />
+                </section>
+              </Route>
+              <Route exact path="/analysis">
+                <section>
+                  <Analysis />
+                  <Footer />
+                </section>
+              </Route>
+              <Route exact path="/login">
+                <LoginPage />
+              </Route>
+              <Route exact path="/signUp">
                 <SignUp />
-              </section>
-            </Route>
-          </Switch>
-        </main>
+              </Route>
+            </Switch>
+          </main>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

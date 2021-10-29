@@ -1,171 +1,175 @@
 body {
-    margin: 0%;
-    background-color: #7D8491
+  margin: 0%;
+  background-color: #7d8491;
 }
-.input{
-    width: 80%;
-    margin-left: 10%
+.signUp {
+  width: 60%;
+  margin: 2% 20% 0% 20%;
+}
+
+.input {
+  width: 80%;
+  margin-left: 10%;
 }
 .entry {
-    border-radius: 3px;
-    border: black solid 1px;
-    font-size: auto;
-    color: white;
-    background-color: #7D8491;
-    padding: 1%;
-    margin: 0.97%;
-    width: 12%;
-    display: grid;
-    text-align: center;
-  }
-
-  .containers{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-left: 2%;
-      /* justify-content: flex-start; */
-  }
-
-  .list {
-    margin: 0% 0  10% 0%;
-    width: 100%;
-    align-content: flex-start;
-    justify-content: flex-start;
-    border: 1px double grey;
-    background-color: #EAF0CE;
-  }
-
-  .days {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 95%;
-    margin-top: 4%;
-    margin-left: 2.5%;
-    align-content: flex-start;
-    justify-content: flex-start;
-  }
-
-  .day {
-    font-size: 130%;
-    padding: 1%;
-    margin: 1%;
-    width: 12.25%;
-    color: rgb(250, 250, 250);
-    display:grid;
-    text-align: center;
-    border-left: solid black 2px;
-    border-right: solid black 2px;
-    border-top: solid black 2px;
-  }
-
-  .btn-delete{
-    background-color: #520000;
-    color: white;
-    border: black solid;
-    margin: 1%;
-    font-size: 100%;
-  }
-
-  .btn-edit{
-    background-color: #a57f01;
-    color: white;
-    border: black solid;
-    margin: 1%;
-    font-size: 100%;
-  }
-
-  .btn-close{
-    background-color: #ff4617;
-    color: white;
-    border: black solid;
-    margin: 1%;
-    font-size: 100%;
-  }
-
-  .edit_button{
-    background-color: #3F334D;
-    color: white;
-    border: black solid;
-    font-size: 90%;
-  }
-
-  .header {
-    font-weight: bold;
-    font-size:300%;
-    text-align: left;
-    color: white;
-    margin-left: 2%;
-  }
-
-  
-  .footer {
-    font-weight: bold;
-    font-size: 150%;
-    text-align: center;
-    color: white;
-  }
-
-  .btn-success {
-    background-color: #3F334D;
-    color:  #EAF0CE;
-    border: black solid;
-    width: 10%;
-    margin: 1%;
-    font-size: 140%;
-  }
-
-  .suggestion-box {
-    text-align: center;
-    color: #ffffff;
-    font-size: auto;
-    background: goldenrod;
-    padding: 1%;
-    margin: 3% 0 3% 0;
-  }
-
-  .dropdown {
-    text-align: center;
-    color: white;
-  }
-
-  .tableEx {
-    width: 90%;
-    margin:5% 5% 3% 5%;
-    color: white;
-    border: 1px solid black;
-    text-align: center;
-  }
-
-  .exercise {
-    border: 1px solid black;
-  }
-
-  .stat {
-    border: 1px solid black;
-  }
-
-  .switchButton {
-    text-align: center;
-    padding: 1%;
-    background-color:#a57f01;
-    color:white;
-    margin-left: 5%;
-  }
-
-  .subheader {
-    color: white;
-    text-align: center;
-  }
-
-  .form-control{
-    width: 100%;
-    display: flex;
-    margin: 1%;
+  border-radius: 3px;
+  border: black solid 1px;
+  font-size: auto;
+  color: white;
+  background-color: #7d8491;
+  padding: 1%;
+  margin: 0.97%;
+  width: 12%;
+  display: grid;
+  text-align: center;
 }
 
-.inputs{
+.containers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 2%;
+  /* justify-content: flex-start; */
+}
+
+.list {
+  margin: 0% 0 10% 0%;
+  width: 100%;
+  align-content: flex-start;
+  justify-content: flex-start;
+  border: 1px double grey;
+  background-color: #eaf0ce;
+}
+
+.days {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 95%;
+  margin-top: 4%;
+  margin-left: 2.5%;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.day {
+  font-size: 130%;
+  padding: 1%;
+  margin: 1%;
+  width: 12.25%;
+  color: rgb(250, 250, 250);
+  display: grid;
+  text-align: center;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
+  border-top: solid black 2px;
+}
+
+.btn-delete {
+  background-color: #520000;
+  color: white;
+  border: black solid;
+  margin: 1%;
+  font-size: 100%;
+}
+
+.btn-edit {
+  background-color: #a57f01;
+  color: white;
+  border: black solid;
+  margin: 1%;
+  font-size: 100%;
+}
+
+.btn-close {
+  background-color: #ff4617;
+  color: white;
+  border: black solid;
+  margin: 1%;
+  font-size: 100%;
+}
+
+.edit_button {
+  background-color: #3f334d;
+  color: white;
+  border: black solid;
+  font-size: 90%;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 300%;
+  text-align: left;
+  color: white;
+  margin-left: 2%;
+}
+
+.footer {
+  font-weight: bold;
+  font-size: 150%;
+  text-align: center;
+  color: white;
+}
+
+.btn-success {
+  background-color: #3f334d;
+  color: #eaf0ce;
+  border: black solid;
+  width: 10%;
+  margin: 1%;
+  font-size: 140%;
+}
+
+.suggestion-box {
+  text-align: center;
+  color: #ffffff;
+  font-size: auto;
+  background: goldenrod;
+  padding: 1%;
+  margin: 3% 0 3% 0;
+}
+
+.dropdown {
+  text-align: center;
+  color: white;
+}
+
+.tableEx {
+  width: 90%;
+  margin: 5% 5% 3% 5%;
+  color: white;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.exercise {
+  border: 1px solid black;
+}
+
+.stat {
+  border: 1px solid black;
+}
+
+.switchButton {
+  text-align: center;
+  padding: 1%;
+  background-color: #a57f01;
+  color: white;
+  margin-left: 5%;
+}
+
+.subheader {
+  color: white;
+  text-align: center;
+}
+
+.form-control {
+  width: 100%;
+  display: flex;
+  margin: 1%;
+}
+
+.inputs {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -177,25 +181,25 @@ body {
   color: white;
 }
 
-.ex-input{
+.ex-input {
   width: 12%;
   display: flex;
-  margin: 1%
+  margin: 1%;
 }
 
 .dropdownMuscle {
-  margin-left:5%;
-  margin-top:3%;
+  margin-left: 5%;
+  margin-top: 3%;
   color: black;
   text-align: center;
-  width:20%;
-  min-height:30%;
+  width: 20%;
+  min-height: 30%;
   text-align: center;
   font-size: 18px;
 }
 
 .barchart {
-  background-color:white;
+  background-color: white;
   max-width: 80%;
   max-height: 60%;
   margin-left: 10%;
@@ -205,21 +209,21 @@ body {
 .showButton {
   text-align: center;
   padding: 0.5%;
-  background-color:#7c7a00;
-  color:white;
+  background-color: #7c7a00;
+  color: white;
   margin-left: 47%;
   margin-bottom: 3%;
 }
 
 .subHeading {
-  color:white;
+  color: white;
   text-align: center;
   margin-top: 5%;
   margin-bottom: 0%;
 }
 
 .analysisText {
-  color:white;
+  color: white;
   text-align: center;
-  margin: 2% 2% -3% 2%
+  margin: 2% 2% -3% 2%;
 }
