@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 export default function Disclaimer() {
   return (
-    <p className="disclaimer">
-      Not Logged In. <Link to="/login">Come here</Link> to log in!
-    </p>
+    <Card className="disclaimer">
+      <Card.Body>
+        <h3 className="text-center">
+          Not Logged In. <Link to="/login">Do that!</Link>
+        </h3>
+      </Card.Body>
+    </Card>
   );
 }

@@ -25,12 +25,11 @@ const InputSession = () => {
     <div>
       {checkUser(currentUser) && (
         <section className="dropdown">
-          <h2>Input a session</h2>
-          <form className="input">
+          <form>
             <input
               type="text"
-              placeholder="Session"
-              className="ex-input"
+              placeholder="Input Your Session"
+              className="input"
               value={session}
               onChange={e => setSession(e.target.value)}
             />

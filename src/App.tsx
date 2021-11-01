@@ -13,15 +13,19 @@ import LoginPage from "./components/authentification/LogMeIn";
 import { AuthProvider } from "./components/authentification/AuthContext";
 import Dashboard from "./components/authentification/Dashboard";
 import PrivateRoute from "./components/authentification/PrivateRoute";
+// import { useAuth } from "./components/authentification/AuthContext";
 
 function App() {
   const [state, setState] = useState(true);
+  // const { currentUser } = useAuth();
+  // const checkUser = (user: any) => (user === null ? false : true);
 
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
           <Header />
+          {/* {checkUser(currentUser) && ( */}
           <nav>
             {state && (
               <button className="switchButton">
@@ -58,6 +62,7 @@ function App() {
               </Link>
             </button>
           </nav>
+          ){/* } */}
           <main>
             <Switch>
               <Route exact path="/">
