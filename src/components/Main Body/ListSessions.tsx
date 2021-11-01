@@ -33,49 +33,52 @@ const ListSessions = () => {
 
   return (
     <Fragment>
-      {" "}
-      {checkUser(currentUser) && <h3>{currentUser.email}</h3>}
-      <section className="days">
-        <p className="day">
-          <strong>Mon</strong>
-        </p>
-        <p className="day">
-          <strong>Tue</strong>
-        </p>
-        <p className="day">
-          <strong>Wed</strong>
-        </p>
-        <p className="day">
-          <strong>Thu</strong>
-        </p>
-        <p className="day">
-          <strong>Fri</strong>
-        </p>
-        <p className="day">
-          <strong>Sat</strong>
-        </p>
-        <p className="day">
-          <strong>Sun</strong>
-        </p>
-      </section>
-      <table className="list">
-        <tbody className="containers">
-          {sessions
-            // eslint-disable-next-line
-            .filter((session: ISession) => {
-              if (checkUser(currentUser)) {
-                return session.user_email === currentUser.email;
-              }
-            })
-            .map((session: ISession) => (
-              <tr className="entry" key={session.id}>
-                <td>
-                  <EditSession session={session} />
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      {!checkUser(currentUser) && <p>No User Yet. Sign In!</p>}
+      {checkUser(currentUser) && (
+        <section>
+          <section className="days">
+            <p className="day">
+              <strong>Mon</strong>
+            </p>
+            <p className="day">
+              <strong>Tue</strong>
+            </p>
+            <p className="day">
+              <strong>Wed</strong>
+            </p>
+            <p className="day">
+              <strong>Thu</strong>
+            </p>
+            <p className="day">
+              <strong>Fri</strong>
+            </p>
+            <p className="day">
+              <strong>Sat</strong>
+            </p>
+            <p className="day">
+              <strong>Sun</strong>
+            </p>
+          </section>
+          <table className="list">
+            <tbody className="containers">
+              {sessions
+                // eslint-disable-next-line
+                .filter((session: ISession) => {
+                  if (checkUser(currentUser)) {
+                    return session.user_email === currentUser.email;
+                  }
+                })
+                .map((session: ISession) => (
+                  <tr className="entry" key={session.id}>
+                    <td>
+                      <EditSession session={session} />
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </section>
+      )}
     </Fragment>
   );
 };

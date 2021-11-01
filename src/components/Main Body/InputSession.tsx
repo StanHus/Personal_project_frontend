@@ -1,16 +1,24 @@
-import "../../css/style.css"
+import "../../css/style.css";
+import { useAuth } from "../authentification/AuthContext";
 
 const InputSession = () => {
-  const options = ["Triceps", "Chest", "Biceps", "Back", "Shoulders", "Rest Day"]
-
+  const options = [
+    "Triceps",
+    "Chest",
+    "Biceps",
+    "Back",
+    "Shoulders",
+    "Rest Day",
+  ];
+  const { currentUser } = useAuth();
+  const checkUser = (user: any) => (user === null ? false : true);
   const onSelection = async (input: string) => {
-    console.log(`here comes log 2: ${input}`)
     try {
-      const body = { muscles_trained: input };
-        await fetch("https://mysterious-reaches-13528.herokuapp.com/list", {
+      const body = { muscles_trained: input, user_email: currentUser.email };
+      await fetch("https://mysterious-reaches-13528.herokuapp.com/list", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       });
       window.location.href = "/";
     } catch (err) {
@@ -20,14 +28,17 @@ const InputSession = () => {
 
   return (
     <div>
-    <section className="dropdown">
+      {checkUser(currentUser) && (
+        <section className="dropdown">
           <h2>Choose a session</h2>
           <select
-              onChange={(e) => {
+            onChange={e => {
               onSelection(e.target.value);
             }}
           >
-            <option className="dropdownelement">What are we training today?</option>
+            <option className="dropdownelement">
+              What are we training today?
+            </option>
             {options.map((val: string) => {
               return (
                 <option className="dropdownelement" key={val} value={val}>
@@ -37,6 +48,7 @@ const InputSession = () => {
             })}
           </select>
         </section>
+      )}
     </div>
   );
 };
