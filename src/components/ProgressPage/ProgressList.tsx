@@ -6,7 +6,10 @@ import { useAuth } from "../authentification/AuthContext";
 const ListProgress = () => {
   const [progress, setProgress] = useState([]);
   const { currentUser } = useAuth();
+<<<<<<< HEAD
   const checkUser = (user: any) => (user === null ? false : true);
+=======
+>>>>>>> 653648b834078b7918c3418f62f3b580485dcea7
 
   interface IEntry {
     session_id: number;
@@ -16,7 +19,10 @@ const ListProgress = () => {
     sets: number;
     reps: number;
     weight: number;
+<<<<<<< HEAD
     user_email: string;
+=======
+>>>>>>> 653648b834078b7918c3418f62f3b580485dcea7
   }
 
   const getProgress = async () => {
@@ -26,6 +32,10 @@ const ListProgress = () => {
       );
       const jsonData = await response.json();
       setProgress(jsonData);
+<<<<<<< HEAD
+=======
+      console.log("I am an issue");
+>>>>>>> 653648b834078b7918c3418f62f3b580485dcea7
     } catch (err) {
       console.error(err);
     }
@@ -46,6 +56,7 @@ const ListProgress = () => {
     getProgress();
   }, []);
 
+<<<<<<< HEAD
   return (
     <Fragment>
       {!checkUser(currentUser) && <p>No User Yet. Sign In!</p>}
@@ -94,6 +105,52 @@ const ListProgress = () => {
       )}
     </Fragment>
   );
+=======
+  if (currentUser === null)
+    return (
+      <Fragment>
+        <h2 className="footer">No data yet</h2>
+      </Fragment>
+    );
+  else {
+    return (
+      <Fragment>
+        <InputExercise />
+        <table className="tableEx">
+          <tr className="exercise">
+            <th className="stat">Date</th>
+            <th className="stat">Muscle Group</th>
+            <th className="stat">Exercise Name</th>
+            <th className="stat">Sets</th>
+            <th className="stat">Reps</th>
+            <th className="stat">Weight</th>
+            <th className="stat">Delete</th>
+          </tr>
+          {progress.map((entry: IEntry) => (
+            <tr className="exercise" key={entry.session_id}>
+              <td className="stat">{entry.date.slice(0, 10)}</td>
+              <td className="stat">{entry.muscle_group}</td>
+              <td className="stat">{entry.exercise_name}</td>
+              <td className="stat">{entry.sets}</td>
+              <td className="stat">{entry.reps}</td>
+              <td className="stat">{entry.weight}</td>
+              <td className="stat">
+                <button
+                  type="button"
+                  className="btn-delete"
+                  data-dismiss="modal"
+                  onClick={() => deleteExercise(entry.session_id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </table>
+      </Fragment>
+    );
+  }
+>>>>>>> 653648b834078b7918c3418f62f3b580485dcea7
 };
 
 export default ListProgress;

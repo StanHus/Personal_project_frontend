@@ -10,6 +10,7 @@ const InputExercise = () => {
   const [reps, setReps] = useState("");
   const [weight, setWeight] = useState("");
   const { currentUser } = useAuth();
+
   const checkUser = (user: any) => (user === null ? false : true);
 
   const onSubmitForm = async (e: any) => {
