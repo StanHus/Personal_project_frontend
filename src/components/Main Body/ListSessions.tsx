@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import EditSession from "./EditSession";
 import "../../css/style.css";
 import { useAuth } from "../authentification/AuthContext";
+import Disclaimer from "./Disclaimer";
 
 interface ISession {
   id: number;
@@ -33,7 +34,7 @@ const ListSessions = () => {
 
   return (
     <Fragment>
-      {!checkUser(currentUser) && <p>No User Yet. Sign In!</p>}
+      {!checkUser(currentUser) && <Disclaimer />}
       {checkUser(currentUser) && (
         <section>
           <section className="days">

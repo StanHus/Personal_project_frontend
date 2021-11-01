@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../../css/style.css";
 import InputExercise from "./InputExercise";
 import { useAuth } from "../authentification/AuthContext";
+import Disclaimer from "../Main Body/Disclaimer";
 
 const ListProgress = () => {
   const [progress, setProgress] = useState([]);
@@ -48,7 +49,7 @@ const ListProgress = () => {
 
   return (
     <Fragment>
-      {!checkUser(currentUser) && <p>No User Yet. Sign In!</p>}
+      {!checkUser(currentUser) && <Disclaimer />}
       {checkUser(currentUser) && (
         <section>
           <InputExercise />

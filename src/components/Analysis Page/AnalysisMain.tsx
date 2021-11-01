@@ -3,6 +3,7 @@ import SortByExercise from "./SortByExercise";
 // import SortByMuscle from "./SortByMuscle";
 import { useAuth } from "../authentification/AuthContext";
 import { Fragment } from "react";
+import Disclaimer from "../Main Body/Disclaimer";
 
 const Analysis = () => {
   const { currentUser } = useAuth();
@@ -16,7 +17,7 @@ const Analysis = () => {
           <SortByExercise />
         </Fragment>
       )}
-      {!checkUser(currentUser) && <p>No User Yet, sign in</p>}
+      {!checkUser(currentUser) && <Disclaimer />}
     </>
   );
 };

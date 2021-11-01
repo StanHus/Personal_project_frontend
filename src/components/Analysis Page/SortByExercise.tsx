@@ -136,6 +136,7 @@ const SortByExercise = () => {
   const progressionMappped = filteredProgression.map((entry: IExercise) => {
     chartStats.push(entry.total_weight);
     chartOptions.push(entry.date.slice(0, 10));
+
     return (
       <tr className="exercise" key={entry.total_weight}>
         <td className="stat">{entry.exercise_name}</td>
